@@ -17,13 +17,13 @@ class Match extends PureComponent {
   }
 
   getLocations = _ => {
-    axios.get('/zips')
+      axios.get('/zips')
+      fetch('http://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
       .then((data) => {
-        // axios returns an object named data so data.data
-        this.setState({ locations: data.data.zipList, filteredLocations: data.data.zipList, listStates: this.getAllStates(data.data.zipList) });
+        this.setState({ contacts: data })
       })
-      // .then(({response}) => this.setState({users: response.users}))
-      .catch(error => console.log(error));
+      .catch(console.log)
   }
   getAllStates(data) {
     let states = [];
