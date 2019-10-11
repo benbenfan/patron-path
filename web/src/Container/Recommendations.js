@@ -36,32 +36,30 @@ class Recommendations extends Component {
 
   handleDistance(event) {
     if (event.target.value.split(' ').length > 1) {
-			alert('Please only search one word');
-			return;
+      alert('Please only search one word');
+      return;
     }
     //  else if (!/[0-9]|\./.test(event.target.value)) {
-		// 	alert("Please enter only letter and numeric characters");
-		// 	return;
-		// }
-		this.setState({ value: event.target.value });
+    // 	alert("Please enter only letter and numeric characters");
+    // 	return;
+    // }
+    this.setState({ value: event.target.value });
   }
   handleZip1(event) {
     if (event.target.value.split(' ').length > 1) {
-			alert('Please only search one word');
-			return;
+      alert('Please only search one word');
+      return;
     }
-		this.setState({ zip1: event.target.value });
+    this.setState({ zip1: event.target.value });
   }
 
   handleZip2(event) {
     if (event.target.value.split(' ').length > 1) {
-			alert('Please only search one word');
-			return;
+      alert('Please only search one word');
+      return;
     }
-		this.setState({ zip2: event.target.value });
+    this.setState({ zip2: event.target.value });
   }
-
-  showData
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -74,21 +72,41 @@ class Recommendations extends Component {
     const zip1 = this.state.zip1;
     const zip2 = this.state.zip2;
     const distance = this.state.value;
-    
-    axios.post(`/match`, { zip1,zip2,distance })
+
+    axios.post(`/match`, { zip1, zip2, distance })
       .then(data => {
         this.setState({ zips: data.data.zipList });
-        console.log(this.state.zips);
+
       })
-  } 
-  showData() {
-    
-    // return <div>zip code 1: {this.state.zips.zip_code1}<br></br>
-    // zip code 2: {this.state.zips.zip_code2}<br></br>
-    // Distance: {this.state.zips.distance}</div>
-    
+  }
+  showData(data) {
+    let zip1 = "";
+    let zip2 = "";
+    let dist = "";
+    if (typeof data[2] === 'undefined') {
+      zip1 = "No Data";
+      zip2 = "No Data";
+      dist = "No Data";
+    }
+    else {
+      for (let i = 15; i <= 19; i++) {
+        zip1 += data[i];
+      }
+      for (let i = 35; i <= 39; i++) {
+        zip2 += data[i];
+      }
+      for (let i = 53; i <= 57; i++) {
+        dist += data[i];
+      }
+    }
+
+    return <div>zip code 1: {zip1}<br></br>
+      zip code 2: {zip2}<br></br>
+      Distance: {dist}</div>
+
   }
   render() {
+    const zips = this.state.zips;
     return (
       <div className="darken">
         <form onSubmit={this.handleSubmit}>
@@ -106,8 +124,8 @@ class Recommendations extends Component {
 
         <br />
         <h2>Results</h2>
-        {(this.state.zips)}
-        {this.showData()}
+        {/* {(this.state.zips)} */}
+        {this.showData(zips)}
       </div>
     );
   }

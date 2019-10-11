@@ -153,46 +153,7 @@ class Locale extends React.Component {
           }
           } dangerouslySetInnerHTML={this.locationInfo()[2]} />
         </Card.Subtitle>
-        {/* <p dangerouslySetInnerHTML={this.courseInfo()[2]} /> */}
       </Card.Body>
-     {/* <ListGroup variant="flush" style={{
-        fontFamily: "Arial, Helvetica, sans-serif",
-      }}> */}
-        {/* <ListGroup.Item
-          style={{
-            backgroundColor: '#DCC7AA',
-            color: "#4f5f76",
-            borderRadius: "7px"
-          }}><span dangerouslySetInnerHTML={this.courseInfo()[3]} /></ListGroup.Item> */}
-         {/* <ListGroup.Item
-          style={{
-            backgroundColor: '#c9af98',
-            color: "#4f5f76",
-            borderRadius: "7px"
-          }}><span dangerouslySetInnerHTML={this.courseInfo()[5]} /></ListGroup.Item>
-        <ListGroup.Item
-          style={{
-            backgroundColor: '#acb7bf',
-            color: "#4f5f76",
-          }}>
-          <Accordion>
-            <Card
-              style={{
-                backgroundColor: '#acb7bf',
-                color: "#4f5f76",
-              }}>
-              <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                  Schedule(s):
-      </Accordion.Toggle>
-              </Card.Header>
-              <Accordion.Collapse eventKey="0">
-                <Card.Body><div id="insertTable" dangerouslySetInnerHTML={this.createTable()} /></Card.Body>
-              </Accordion.Collapse>
-            </Card>
-          </Accordion>
-        </ListGroup.Item>*/}
-      {/* </ListGroup>  */}
     </Card>;
   }
   alreadyAdded(){
