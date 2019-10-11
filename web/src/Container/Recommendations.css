@@ -1,9 +1,9 @@
 .darken {
-    color: rgba(47,86,135,1);
+    color: green;
     font-size: auto;
 }
 .submission {
-    background-color: rgba(47,86,135,1);
+    background-color: green;
     border: none;
     color: white;
     margin: 20px;

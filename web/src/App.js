@@ -6,7 +6,7 @@ import {
   NavLink,
   HashRouter
 } from "react-router-dom";
-import Match from './Container/Match.js'
+import Recommendations from './Container/Recommendations.js'
 import Author from './Author.js'
 import Sample from './Container/Search.js'
 import { bounce } from 'react-animations';
@@ -26,13 +26,13 @@ function App() {
           <div>
             <ul className="header">
               <li><NavLink to="/Search">Zip Search</NavLink></li>
-              <li><NavLink to="/Match">Area Match</NavLink></li>
+              <li><NavLink to="/Recommendations">Area Match</NavLink></li>
               <li><NavLink to="/author">Author</NavLink></li>
 
             </ul>
             <div className="content">
               <Route path="/Search" component={Sample} />
-              <Route path="/Match" component={Match} />
+              <Route path="/Recommendations" component={Recommendations} />
               <Route path="/author" component={Author} />
             </div>
           </div>
