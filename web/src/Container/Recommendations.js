@@ -28,7 +28,7 @@ class Recommendations extends Component {
         // axios returns an object named data so data.data
 
         this.setState({ zips: data.data.zipList });
-        console.log(this.state.zips);
+        // console.log(this.state.zips);
       })
       .catch(error => console.log(error));
   }
@@ -77,23 +77,22 @@ class Recommendations extends Component {
     
     axios.post(`/match`, { zip1,zip2,distance })
       .then(data => {
-        this.setState({ users: data.data.zips });
-        // console.log(name);
-        // console.log(data.data);
-        // console.log(this.showUsers)
+        this.setState({ zips: data.data.zipList });
+        console.log(this.state.zips);
       })
   } 
   showData() {
-    return <div>zip code 1: {this.state.zips.zip_code1}<br></br>
-    zip code 2: {this.state.zips.zip_code2}<br></br>
-    Distance: {this.state.zips.distance}</div>
+    
+    // return <div>zip code 1: {this.state.zips.zip_code1}<br></br>
+    // zip code 2: {this.state.zips.zip_code2}<br></br>
+    // Distance: {this.state.zips.distance}</div>
     
   }
   render() {
     return (
-      <div>
+      <div className="darken">
         <form onSubmit={this.handleSubmit}>
-          <label className="darken">
+          <label >
             <h1>Search Zip Codes:</h1>
             Zip Code 1:<br></br>
             <input type="text" value={this.state.zip1} onChange={this.handleZip1}></input><br></br>
@@ -106,8 +105,8 @@ class Recommendations extends Component {
         </form>
 
         <br />
-        <h2>Recomendations by name</h2>
-        {/* {(this.state.zips)} */}
+        <h2>Results</h2>
+        {(this.state.zips)}
         {this.showData()}
       </div>
     );
